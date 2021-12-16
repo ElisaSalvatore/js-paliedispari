@@ -12,42 +12,52 @@ const buttonUneven = document.querySelector('.button-uneven');
 const notEven = document.querySelector('.not-even');
 const notUneven = document.querySelector('.not-uneven');
 
-// const gameWinner = document.querySelector('.winner');
+const gameWinner = document.querySelector('.winner');
 
 let userNumber;
-let result;
+let computerNumber;
+let sum;
+
 
 //chidere all'utente un numero da 1 a 5
+//sommiamo il numero dell'utente ed il numero del computer
+//decretiamo un vincitore
+
 buttonEven.addEventListener('click', function() {
-    userNumber = prompt('Inserisci un numero pari da 1 a 5:');
-    if (userNumber % 2 == 0) {
-        notEven.innerHTML = `Corretto! Hai inserito un numero pari.`;
-        console.log('L\'utente ha inserito un numero pari.')
+    userNumber = prompt('Inserisci un numero da 1 a 5:');
+    console.log('Numero dell\'utente:', userNumber);
+
+    sum = userNumber + computerNumber;
+    
+    if (sum % 2 === 0) {
+        gameWinner.innerHTML = `La somma è pari. Complimenti, hai vinto!`
     } else {
-        console.log('L\'utente ha inserito un numero dispari.')
-        notEven.innerHTML = `Il numero che hai inserito non è pari. Riprova.`
+        gameWinner.innerHTML = `La somma è dispari. Ritenta, sarai più fortunato.!`
     }
-    console.log('Numero dell\'utente: ', userNumber);
-})
+});
+console.log(sum);
 
 buttonUneven.addEventListener('click', function() {
-    userNumber = prompt('Inserisci un numero dispari da 1 a 5:');
-    if (userNumber % 2 !== 0) {
-        notEven.innerHTML = `Corretto! Hai inserito un numero dispari.`;
-        console.log('L\'utente ha inserito un numero dispari.')
+    userNumber = prompt('Inserisci un numero da 1 a 5:');
+    console.log('Numero dell\'utente:', userNumber);
+
+    sum = userNumber + computerNumber;
+
+    if (sum % 2 !== 0) {
+        gameWinner.innerHTML = `La somma è dispari. Complimenti, hai vinto!`
     } else {
-        console.log('L\'utente ha inserito un numero pari.')
-        notUneven.innerHTML = `Il numero che hai inserito non è dispari. Riprova.`
+        gameWinner.innerHTML = `La somma è pari. Ritenta, sarai più fortunato.!`
     }
-    console.log('Numero dell\'utente: ', userNumber);
 });
+console.log(sum);
 
 // generare un numero random per il computer
 function randomNumberMachine(min, max) {
-    const result = Math.floor(Math.random() * ((max + 1) - min)) + min;
-    console.log('Il numero del computer è:', result);
-    return result;
+    computerNumber = Math.floor(Math.random() * ((max + 1) - min)) + min;
+    console.log('Il numero del computer è:', computerNumber);
+    return computerNumber;
 };
 randomNumberMachine(1, 5);
 
-//sommiamo il numero dell'utente ed il numero del computer
+
+
