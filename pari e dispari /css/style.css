@@ -1,0 +1,17 @@
+.button-even, .button-uneven {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    padding: 3px;
+    background-color: palegreen;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button-even:hover, .button-uneven:hover {
+    color: white;
+    background-color: seagreen;
+}
